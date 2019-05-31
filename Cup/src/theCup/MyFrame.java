@@ -78,24 +78,23 @@ public class MyFrame extends JFrame{
         new MyThread().start();
     }
     
-    VideoCap videoCap = new VideoCap(1);
+    VideoCap videoCap = new VideoCap(0);
     
     public void paint(Graphics g){
         g = contentPane.getGraphics();
         videoCap.read();
         Mat image = videoCap.getCapturedMat();
-        Image newImage = toolBox.findCircles(image);
-        //CV.process(image);
-        //Point center = toolBox.findCentroid(CV.hsvThresholdOutput());
-        //if(Double.toString(center.x) != "NaN") {
-        //CV.addPoint((Point)center);
-        //}
+        CV.process(image);
+        Point center = toolBox.findCentroid(CV.hsvThresholdOutput());
+        if(Double.toString(center.x) != "NaN") {
+        CV.addPoint((Point)center);
+        }
         Mat output = CV.hsvThresholdOutput();
         System.out.println(1000*CV.getPointsSize()/(System.currentTimeMillis()-this.startTime));
         try {
-        	//if(CV.getPointsSize() < 25) {
-			//g.drawImage(toolBox.drawCircle(image, center, new Scalar(200, 0, 0)), 0, 0, this);
-        	//}else {
+        	if(CV.getPointsSize() < 60) {
+			g.drawImage(toolBox.drawCircle(image, center, new Scalar(200, 0, 0)), 0, 0, this);
+        	}else {
         	/*int x = 1;
         	while(x<6) {
         		image = toolBox.image2Mat(toolBox.drawCircle(image, CV.getPoint(CV.getPointsSize()-x), new Scalar(200, 0, 0)));
@@ -103,9 +102,8 @@ public class MyFrame extends JFrame{
         	}
         	Point prediction = new Point();
         	*/		
-        	//g.drawImage(toolBox.drawCurve(image, CV.points),0,0,this);
-        		g.drawImage(newImage,0,0,this);
-        	//}
+        	g.drawImage(toolBox.drawCurve(image, CV.points),0,0,this);
+        	}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
