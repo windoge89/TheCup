@@ -4,16 +4,12 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import org.opencv.core.Mat;
 
 public class mainFrame extends JFrame{
+	double startTime;
+	double iterations;
 Container contentPane;
 JPanel topPanel;
 JPanel leftPanel;
@@ -23,6 +19,8 @@ JPanel bottomPanel;
 VideoCap videoCap;
 
 public mainFrame(){
+	startTime = (System.currentTimeMillis()/1000);
+	iterations = 0;
 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 contentPane = this.getContentPane(); 
 }
@@ -33,7 +31,7 @@ public static void main(String[] args) {
 }
 
 public void create() {
-	videoCap = new VideoCap(0);
+	videoCap = new VideoCap(1);
 	videoCap.read();
     int height = videoCap.getImage(videoCap.getCapturedMat()).getHeight();
     int width = videoCap.getImage(videoCap.getCapturedMat()).getWidth();
@@ -58,6 +56,7 @@ public void create() {
 	myThread.start();
 }
 
+@Override
 public void paint(Graphics g) {
 	super.paint(g);
 }
@@ -67,8 +66,11 @@ class mainThread extends Thread{
 	@Override
     public void run() {
         for (;;){
+        	//iterations++;
+    		//System.out.println(iterations/(System.currentTimeMillis()/1000 - startTime));
+        	//videoCap.read();
             repaint();
-            try { Thread.sleep(30);
+            try { Thread.sleep(5);
             } catch (InterruptedException e) {    }
         }
     }

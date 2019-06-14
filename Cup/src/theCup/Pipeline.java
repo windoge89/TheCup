@@ -1,19 +1,7 @@
 package theCup;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.HashMap;
-
 import org.opencv.core.*;
-import org.opencv.core.Core.*;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.*;
-import org.opencv.objdetect.*;
 
 /**
 * Pipeline class.
@@ -40,7 +28,7 @@ public class Pipeline {
 		Mat hsvThresholdInput = source0;
 		double[] hsvThresholdHue = {9.0, 180.0};
 		double[] hsvThresholdSaturation = {121.53776978417264, 255.0};
-		double[] hsvThresholdValue = {185.74640287769785, 255.0};
+		double[] hsvThresholdValue = {180.74640287769785, 255.0};
 		hsvThreshold(hsvThresholdInput, hsvThresholdHue, hsvThresholdSaturation, hsvThresholdValue, hsvThresholdOutput);
 
 		// Step Mask0:

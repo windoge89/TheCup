@@ -18,10 +18,19 @@ public class VideoCap {
 
     VideoCap(int index){
         cap = new VideoCapture();
+        //cap.set(Videoio.CAP_OPENCV_MJPEG); 
         cap.open(index);
+        cap.set(Videoio.CAP_PROP_EXPOSURE, -7);
+        
         cap.set(Videoio.CAP_PROP_FOURCC, VideoWriter.fourcc('M', 'J', 'P', 'G'));
-        cap.set(Videoio.CAP_PROP_FRAME_WIDTH, 640);
-        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 480);
+        //cap.set(Videoio.CAP_PROP_SETTINGS, 1);
+        cap.set(Videoio.CAP_PROP_FPS, 120);
+        cap.set(Videoio.CAP_PROP_FRAME_WIDTH, 630);
+        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 470);
+        //cap.set(Videoio.CAP_OPENNI_BGR_IMAGE, 100);
+        
+        //cap.set(Videoio.CAP_PROP_FRAME_COUNT, 120);
+        
     }
     void read() {
     	cap.read(mat2Img.mat);
