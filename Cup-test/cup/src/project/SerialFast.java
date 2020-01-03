@@ -1,4 +1,4 @@
-package theCuptest;
+package project;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;

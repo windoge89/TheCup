@@ -1,4 +1,4 @@
-package theCuptest;
+package project;
 
 import javax.sql.rowset.serial.SerialException;
 

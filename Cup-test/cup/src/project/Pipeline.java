@@ -1,4 +1,4 @@
-package theCup;
+package project;
 
 import org.opencv.core.*;
 import org.opencv.imgproc.*;

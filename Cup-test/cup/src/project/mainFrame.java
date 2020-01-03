@@ -1,4 +1,4 @@
-package theCuptest;
+package project;
 
 
 import java.io.IOException;
@@ -6,13 +6,10 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import gnu.io.CommPortIdentifier; 
-import gnu.io.SerialPort;
-import gnu.io.SerialPortEvent; 
-import gnu.io.SerialPortEventListener; 
+
 import java.util.Enumeration;
 
-import gnu.io.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -44,11 +41,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import org.ardulink.core.Link;
-import org.ardulink.core.convenience.Links;
+
 import org.opencv.videoio.Videoio;
 
-import arduino.*;
+
 import javafx.geometry.Point3D;
 
 public class mainFrame extends JFrame{
